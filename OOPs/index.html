@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICIC Bank</title>
+</head>
+<body>
+    <h1>ICIC Bank India</h1>
+    <form id="accountForm">
+        <label for="customerName">Customer Name:</label><br>
+        <input type="text" id="customerName" name="customerName" required><br><br>
+        <label for="balance">Initial Balance:</label><br>
+        <input type="number" id="balance" name="balance" value="0" min="0"><br><br>
+        <input type="submit" value="Create Account">
+    </form>
+    <hr>
+    <form id="depositForm">
+        <label for="accountNumber">Account Number:</label><br>
+        <input type="number" id="accountNumber" name="accountNumber" required><br><br>
+        <label for="depositAmount">Deposit Amount:</label><br>
+        <input type="number" id="amount" name="amount" required><br><br>
+        <input type="submit" value="Deposit">
+    </form>
+    <script src="./constructor-fn.js"></script>
+</body>
+</html>

@@ -14,10 +14,31 @@ function bankAccount(customerName, balance = 0){
     }
 }
 
-const anoopAccount = new bankAccount("Anoop Maurya", 5000);
-const rahulAccount = new bankAccount("Rahul Sharma");
-anoopAccount.deposit(3000);
-rahulAccount.deposit(2000);
-anoopAccount.withdraw(10000);
-console.log(anoopAccount);
-console.log(rahulAccount);
+// ==============================
+const accounts = [];
+const accountForm = document.querySelector('#accountForm');
+const customerName = document.querySelector('#customerName');
+const balance = document.querySelector('#balance');
+
+accountForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+   
+    const account = new bankAccount(customerName.value, +balance.value);
+    accounts.push(account);
+    console.log(accounts);
+
+})
+
+const depositForm = document.querySelector('#depositForm');
+const accountNumber = document.querySelector('#accountNumber');
+const amount = document.querySelector('#amount');
+depositForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const account = accounts.find(acc => acc.accountNumber === +accountNumber.value);
+    if(account){
+        account.deposit(+amount.value);
+        console.log(account);
+    }else{
+        console.log("Account not found");
+    }
+})
